@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>Payment Successful · Rest and Assured</title>
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap');
+
+        * {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: #0d0d0d;
+            color: #e0e0e0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        :root {
+            --gold: #fbbf24;
+            --gold-dark: #f59e0b;
+            --gold-border: rgba(251, 191, 36, 0.35);
+            --card-bg: #181818;
+            --card-bg-alt: #1c1c1c;
+        }
+
+        .dark-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 1.5rem;
+        }
+        .dark-card-gold {
+            background: var(--card-bg);
+            border: 1px solid var(--gold-border);
+            border-radius: 1.5rem;
+        }
+        .gold-rule {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.4), rgba(251, 191, 36, 0.4), transparent);
+            margin: 1.75rem 0;
+        }
+        .btn-gold {
+            background: #fbbf24;
+            color: #0d0d0d;
+            font-weight: 700;
+            transition: all 0.25s;
+            border: 2px solid #fbbf24;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .btn-gold:hover {
+            background: #f59e0b;
+            border-color: #f59e0b;
+            transform: scale(1.02);
+            box-shadow: 0 8px 40px -8px rgba(251, 191, 36, 0.45);
+        }
+        .check-circle {
+            width: 72px;
+            height: 72px;
+            background: #fbbf24;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            box-shadow: 0 0 40px rgba(251, 191, 36, 0.35);
+            animation: popIn 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        @keyframes popIn {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            70% {
+                transform: scale(1.12);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        .check-circle svg {
+            width: 34px;
+            height: 34px;
+            fill: #0d0d0d;
+            animation: drawCheck 0.5s 0.2s ease-out forwards;
+            stroke-dasharray: 50;
+            stroke-dashoffset: 50;
+        }
+        @keyframes drawCheck {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+        .highlight-gold {
+            background: #fbbf24;
+            color: #0d0d0d;
+            padding: 0 0.3rem;
+            font-weight: 700;
+            border-radius: 3px;
+        }
+        .email-link {
+            color: #fbbf24;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .email-link:hover {
+            color: #f59e0b;
+        }
+        .card-hover {
+            transition: border-color 0.25s, box-shadow 0.25s;
+        }
+        .card-hover:hover {
+            border-color: rgba(251, 191, 36, 0.45);
+            box-shadow: 0 0 30px -10px rgba(251, 191, 36, 0.08);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        .float-gentle {
+            animation: float 4.5s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="w-full max-w-xl mx-auto">
+        <div class="dark-card-gold p-6 sm:p-10 text-center shadow-2xl card-hover">
+
+            <!-- ✅ Success Checkmark -->
+            <div class="check-circle mb-6">
+                <svg viewBox="0 0 24 24" stroke="#0d0d0d" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="4 12 10 18 20 6" />
+                </svg>
+            </div>
+
+            <!-- Headline -->
+            <h1 class="text-3xl sm:text-4xl font-black text-[#f0f0f0] leading-tight">
+                Payment Successful!
+            </h1>
+            <p class="text-lg sm:text-xl font-semibold text-[#c4c4c4] mt-2 max-w-sm mx-auto">
+                Thank you for purchasing <span class="text-[#fbbf24]">Rest and Assured</span>.
+            </p>
+
+            <p class="text-base text-[#b0b0b0] mt-4 leading-relaxed max-w-md mx-auto">
+                You've just taken an important step toward breaking the cycle of relationship anxiety and learning to trust reality instead of fear.
+            </p>
+            <p class="text-sm text-[#999] mt-2 leading-relaxed max-w-md mx-auto">
+                In the next few minutes, you'll discover practical strategies that helped me stop overthinking every text, every silence, and every imagined worst-case scenario.
+            </p>
+
+            <!-- 📖 Download Button -->
+            <div class="mt-8">
+                <p class="text-sm font-semibold text-[#fbbf24] uppercase tracking-[0.15em] mb-3">📖 Download Your Book</p>
+                <p class="text-xs text-[#888] mb-4">Click the button below to download your copy.</p>
+                <a href="#" class="btn-gold text-lg px-10 py-4 rounded-full shadow-xl w-full sm:w-auto inline-flex">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Download Rest and Assured
+                </a>
+            </div>
+
+            <hr class="gold-rule">
+
+            <!-- 💡 Before You Go -->
+            <div class="text-left">
+                <h3 class="text-lg sm:text-xl font-bold text-[#f0f0f0] mb-2">💡 Before You Go...</h3>
+                <p class="text-sm text-[#c0c0c0] leading-relaxed">
+                    Don't just read this book.<br />
+                    <span class="font-semibold text-[#f0f0f0]">Take your time with it.</span><br />
+                    Pause after each chapter, reflect on the exercises, and apply what you learn in your own relationship. Real change comes from practice, not just information.
+                </p>
+            </div>
+
+            <hr class="gold-rule">
+
+            <!-- 📬 Support -->
+            <div class="text-left">
+                <h3 class="text-base font-bold text-[#f0f0f0] mb-1">📬 Didn't receive your download?</h3>
+                <p class="text-sm text-[#b0b0b0] leading-relaxed">
+                    If you experience any issues accessing your ebook, send an email to:<br />
+                    <a href="mailto:your@email.com" class="email-link text-sm">israelafiesimama@gmail.com</a><br />
+                    <span class="text-xs text-[#888]">We'll help you as quickly as possible.</span>
+                </p>
+            </div>
+
+            <hr class="gold-rule">
+
+            <!-- 🙏 One Last Thing -->
+            <div class="text-left">
+                <h3 class="text-base font-bold text-[#f0f0f0] mb-1">🙏 One Last Thing...</h3>
+                <p class="text-sm text-[#c0c0c0] leading-relaxed">
+                    I genuinely appreciate your trust.<br />
+                    There are countless books on relationships, and I'm honored that you chose this one.
+                </p>
+                <p class="text-sm text-[#c0c0c0] leading-relaxed mt-2">
+                    My hope is that by the time you finish reading <span class="highlight-gold">Rest and Assured</span>, you'll spend less time chasing reassurance and more time enjoying the relationship you've worked so hard to build.
+                </p>
+            </div>
+
+            <!-- Signature -->
+            <div class="mt-6 pt-2">
+                <p class="text-sm font-semibold text-[#fbbf24]">— Israel Afiesimama</p>
+            </div>
+
+            <!-- Secondary CTA -->
+            <div class="mt-8">
+                <a href="#" class="btn-gold text-base px-8 py-3.5 rounded-full shadow-lg w-full sm:w-auto inline-flex">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Download Your Copy Now
+                </a>
+            </div>
+
+            <!-- Subtle Footer -->
+            <p class="text-[10px] text-[#555] mt-8">© 2026 · Rest and Assured · Israel Afiesimama</p>
+        </div>
+    </div>
+
+</body>
+</html>
