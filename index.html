@@ -582,7 +582,7 @@
         </div>
 
         <div class="mt-8 text-center">
-    <a href="https://paystack.shop/pay/rest-and-assured" class="inline-block btn-gold text-lg sm:text-xl px-12 py-5 rounded-full shadow-xl transition-all duration-200 w-full sm:w-auto">
+    <a href="https://paystack.shop/pay/rest-and-assured" id="buyButton" class="inline-block btn-gold text-lg sm:text-xl px-12 py-5 rounded-full shadow-xl transition-all duration-200 w-full sm:w-auto">
         📖 Start Breaking the Anxiety Cycle Today
         <br>
         <span class="line-through text-gray-300 text-base">₦24,000</span>
@@ -814,7 +814,7 @@
             </p>
 
             <div class="mt-8 text-center">
-    <a href="https://paystack.shop/pay/rest-and-assured" class="inline-block btn-gold text-lg sm:text-xl px-12 py-5 rounded-full shadow-xl transition-all duration-200 w-full sm:w-auto">
+    <a href="https://paystack.shop/pay/rest-and-assured" id="buyButton" class="inline-block btn-gold text-lg sm:text-xl px-12 py-5 rounded-full shadow-xl transition-all duration-200 w-full sm:w-auto">
         📖 Start Breaking the Anxiety Cycle Today
         <br>
         <span class="line-through text-gray-300 text-base">₦24,000</span>
@@ -1077,6 +1077,17 @@
             updateFsIcons();
         })();
     </script>
+    <script>
+document.getElementById("buyButton").addEventListener("click", function () {
+    if (typeof fbq !== "undefined") {
+        fbq('track', 'InitiateCheckout');
+    }
+
+    if (typeof gtag !== "undefined") {
+        gtag('event', 'begin_checkout');
+    }
+});
+</script>
 
 </body>
 </html>
